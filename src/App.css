@@ -17,6 +17,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.sidebar{
+  position: absolute;
+  z-index: 99;
+}
 
 .App-link {
   color: #61dafb;
@@ -29,3 +33,4 @@
 .small {
   font-size: 0.75rem;
 }
+
