@@ -47,7 +47,8 @@ function App() {
             />
             <Marker position={[50.98402014466367, 7.120033487900097]}>
               <Popup>
-                BIB International Collage <br />
+                BIB International College.
+                Das bib International College bietet praxisorientierte Ausbildungs- und Studienmöglichkeiten in den Bereichen Informatik, Wirtschaft, Mediendesign und Game an. Mit den staatlich anerkannten Ausbildungen begleiten wir Schüler auf ihrem Weg: vom Realschulabschluss, der Fachhochschulreife oder dem Abitur bis zum Berufsabschluss oder dem internationalen Bachelor. <br /> 
               </Popup>
             </Marker>
           </MapContainer>
