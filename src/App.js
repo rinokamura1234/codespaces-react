@@ -47,7 +47,7 @@ function App() {
             />
             <Marker position={[50.98402014466367, 7.120033487900097]}>
               <Popup>
-                BIB International Collage <br /> 
+                BIB International Collage <br />
               </Popup>
             </Marker>
           </MapContainer>
