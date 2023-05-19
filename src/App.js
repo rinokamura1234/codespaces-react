@@ -1,7 +1,9 @@
 import './App.css';
 import './Map.css';
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import { Icon } from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+import { Icon, divIcon } from "leaflet";
 import L from "leaflet";
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -12,9 +14,43 @@ import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { NotListedLocation, Settings } from '@mui/icons-material';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 
 function App() {
   const { collapseSidebar } = useProSidebar();
+
+  //Marker Icon
+  const markerIcon = new Icon({
+    iconUrl: "/location.png",
+    iconSize: [38,38] // Size of the Icon
+  })
+  //IconGroup Icon
+  const createMarkerClusterIcon = (cluster) => {
+    return new divIcon({
+      html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
+    })
+  }
+
+
+  const markers = [
+    {
+      geocode: [50.9850201235267, 7.1300323420097],
+      popUp: "Hello World!"
+    },
+    {
+      geocode: [50.9940345366367, 7.1300332345300097],
+      popUp: "Hello World2!"
+    },
+    {
+      geocode: [50.994034536367, 7.14005343453097],
+      popUp: "Hello World3!"
+    },
+    {
+      geocode: [50.98402014466367, 7.120033487900097],
+      popUp: "BIB International College.\nDas bib International College bietet praxisorientierte Ausbildungs- und Studienmöglichkeiten in den Bereichen Informatik, Wirtschaft, Mediendesign und Game an. Mit den staatlich anerkannten Ausbildungen begleiten wir Schüler auf ihrem Weg: vom Realschulabschluss, der Fachhochschulreife oder dem Abitur bis zum Berufsabschluss oder dem internationalen Bachelor. <br /> "
+    }
+  ]
+
   return (
     <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
       <div id="sidebar">
@@ -23,9 +59,10 @@ function App() {
             <MenuItem
               icon={<MenuOutlinedIcon />}
               onClick={() => {
-              collapseSidebar();
+                collapseSidebar();
               }}
               style={{ textAlign: "center" }}
+              
             >
               {" "}
               <h2>{<NotListedLocation/>}Geo Guru</h2>
@@ -46,17 +83,23 @@ function App() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               className='zooming'
             />
-            <Marker position={[50.98402014466367, 7.120033487900097]}>
-              <Popup>
-                BIB International College.
-                Das bib International College bietet praxisorientierte Ausbildungs- und Studienmöglichkeiten in den Bereichen Informatik, Wirtschaft, Mediendesign und Game an. Mit den staatlich anerkannten Ausbildungen begleiten wir Schüler auf ihrem Weg: vom Realschulabschluss, der Fachhochschulreife oder dem Abitur bis zum Berufsabschluss oder dem internationalen Bachelor. <br /> 
-              </Popup>
-            </Marker>
+            <MarkerClusterGroup 
+              chunkedLoading
+              iconCreateFunction={createMarkerClusterIcon}
+            >
+              {markers.map(markers => (
+                <Marker position={markers.geocode} icon={markerIcon} >
+                  <Popup>{markers.popUp}</Popup>
+                </Marker>
+              ))}
+            </MarkerClusterGroup>
           </MapContainer>
         </div>
     </div>
     
   );
 }
+
+
 
 export default App;

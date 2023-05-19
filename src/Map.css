@@ -14,3 +14,21 @@
 .leaflet-left {
   left: 70px;
 }
+
+.cluster-icon{
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: greenyellow;
+  transform: translate(-25%,-25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+.cluster-icon.invisible {
+  opacity: 0;
+}
