@@ -34,3 +34,13 @@
   font-size: 0.75rem;
 }
 
+.appLogo{
+  width: 2rem;
+  height: 2rem;
+}
+
+.appLogoDiv{
+  display: flex;
+  align-items: center;
+}
+

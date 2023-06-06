@@ -1,0 +1,58 @@
+.vote-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.vote-buttons button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.vote-buttons button:focus {
+  outline: none;
+}
+
+.vote-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.upvote-button.clicked {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+  color: #00ff00; /* Change color for upvote */
+}
+
+.downvote-button.clicked {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+  color: #ff0000; /* Change color for downvote */
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.vote-icon.clicked {
+  filter: invert(100%) sepia(100%) saturate(1) hue-rotate(180deg); /* Example color transformation */
+}

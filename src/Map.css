@@ -8,7 +8,7 @@
   width: 100vw;
   position: absolute;
   z-index: 1;
-
+  overflow: hidden;
 }
 
 .leaflet-left {
@@ -31,4 +31,56 @@
 }
 .cluster-icon.invisible {
   opacity: 0;
+}
+
+.marker-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -1.2rem;
+}
+
+.play-Podcast-Button{
+  margin-left: 0.5rem;  
+  background-color: transparent;
+  background-image: url("/public/play-button.png");
+  background-size: 100%;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 0px;
+  cursor: pointer;
+}
+
+.podcast-header{
+  margin:0rem; 
+}
+
+.leaflet-pane.leaflet-popup-pane .leaflet-popup .leaflet-popup-content-wrapper .leaflet-popup-content div.audio-player:last-child audio {
+  height: 4rem !important;
+  width: 19rem !important;
+}
+
+.audio-player{
+  height: 5rem !important;
+  width: 19rem !important;
+}
+
+/*Leaflet position Controll*/
+
+.leaflet-control-locate a {
+  font-size: 1.4em;
+  color: #444;
+  cursor: pointer;
+}
+
+.leaflet-control-locate a span {
+  line-height: 30px;
+}
+
+.leaflet-control-locate.active a {
+  color: #2074B6 !important;
+}
+
+.leaflet-control-locate.active.following a {
+  color: #FC8428 !important;
 }
